@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center; background-size: 600% 600%; width: 200px; height: 200px;">
         <ui:VisualElement style="flex-grow: 0; flex-direction: column; height: 200px; background-size: 500% 500%; width: 200px; -unity-background-scale-mode: scale-to-fit;">
-            <ui:Label text="Label" name="LastMessage" style="width: 194px; background-color: rgba(197, 160, 42, 0); -unity-background-scale-mode: stretch-to-fill;" />
+            <ui:Label text="Label" name="LastMessage" style="width: 194px; background-color: rgba(197, 160, 42, 0); -unity-background-scale-mode: stretch-to-fill; font-size: 10px;" />
             <ui:VisualElement name="QRCode" style="flex-grow: 1; width: 180px; height: auto; background-size: 400% 400%; -unity-background-scale-mode: stretch-to-fill;" />
         </ui:VisualElement>
     </ui:VisualElement>

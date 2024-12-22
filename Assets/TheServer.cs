@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using ZXing;
 using ZXing.QrCode.Internal;
@@ -16,7 +17,7 @@ public class TheServer : MonoBehaviour
 
     private string _LastReceived;
 
-    private Thread? _Receiver;
+    private Thread _Receiver;
 
     void Start()
     {
@@ -32,6 +33,9 @@ public class TheServer : MonoBehaviour
 
         _Receiver = new(ReceiveData) { IsBackground = true };
         _Receiver.Start();
+
+        InputSystem.EnableDevice(UnityEngine.InputSystem.AttitudeSensor.current);
+        InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
     }
 
     private Texture2D CreateQRCode(int width, int height)
@@ -70,7 +74,7 @@ public class TheServer : MonoBehaviour
 
     void Update()
     {
-        _LastMessage.text = _LastReceived;
+        _LastMessage.text = $"({UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue()}) {_LastReceived}";
     }
 
     private void ReceiveData()
